@@ -1,0 +1,287 @@
+/* 历时聊天记录样式--杨震 */
+        *{
+            margin: 0;
+            padding: 0;
+        } 
+        #chat-history{
+           width:50%;
+           _width:60%;
+           *width:60%;
+           height: 73%;
+            position: absolute;
+            /* margin-left: -250px; */
+            padding: 5px;
+            overflow-y: scroll;
+           top:0;
+            left:35%;
+           display:none;
+           border:1px solid gray;
+           *left:28%;
+           _left:28%;
+          
+        }
+        li{
+            list-style: none;
+
+        }
+        .name{
+            display: inline-block;
+            padding: 10px;
+            background-color: #01AAEE;
+            border-radius: 5px;
+            color: white;
+        }
+        .person-info{
+            float: left;
+            position: relative;
+        }
+        .agent-info{
+            float: right;
+            position: relative;
+        }
+
+        .form-self{
+            overflow: hidden;
+            display: block;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .person-record-content{
+            word-break: break-all;
+            text-align: left;
+            float: left;
+            margin-left: 20px;
+            box-shadow:3px 3px 16px hsla(0, 0%, 0%, 0.7);
+            max-width: 200px;
+            border-radius: 5px;
+            padding: 5px;
+            position: relative;
+            background-color:rgba(128,128,105,0.4);
+        }
+        .agent-record-content{
+            word-break: break-all;
+            text-align: right;
+            float: right;
+            margin-right: 20px;
+            box-shadow:-3px 3px 16px hsla(0, 0%, 0%, 0.7);
+            max-width: 200px;
+            border-radius: 5px;
+            padding: 5px;
+            position: relative;
+            background-color:rgba(218, 165,105,0.4);
+        }
+
+        .time{
+            margin-bottom: 5px;
+            color: #01AAEE;
+        }
+        .person-record-content::before{
+            position: absolute;
+            top:5px;
+            left: -18px;
+            height:0px;
+            width:0px;
+            border-width:8px 18px 8px 0;
+            border-style:solid;
+            content:"\00a0";
+            border-color:transparent rgba(128,128,105,0.4)  transparent transparent;
+        }
+
+        .agent-record-content::after{
+            position: absolute;
+            top: 5px;
+            right:-18px;
+            height:0px;
+            width:0px;
+            border-width:8px 0px 8px 18px;
+            border-style:solid;
+            content:"\00a0";
+            border-color:transparent transparent transparent  rgba(218, 165,105,0.4);
+        }
+
+
+/* over */
+
+.newImage{
+	width:150px;
+	heigth:150px;
+	*width:150px;
+	*heigth:150px;
+	_width:150px;
+	_sheigth:150px;
+}
+
+
+/* 发送按钮样式 --scott */
+/* start */
+       .container{
+            position: absolute;
+            /* top:177%; */
+               bottom: 5px;
+            left:100%;
+            margin-left: -102px;
+            margin-top: -100px;
+            border-radius: 2px;
+            background: #26A198;
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+        }
+        /*包裹文本的div，包括三角和弹出框都是相对于这个div进行定位*/
+        .content_btn{
+            position: relative;
+            color: white;
+        }
+
+        #triangle:after{
+            position: absolute;
+            top:11px;
+            right:15px;
+            display: inline-block;
+            cursor: pointer;
+            content:"\00a0";
+            height:0px;
+            width:0px;
+            border-width:8px;
+            border-style:solid;
+            border-color:white transparent transparent transparent;
+        }
+
+        .jump{
+            position: absolute;
+            top:-45px;
+            left: -118px;
+            width: 170px;
+            height: 40px;
+            background: coral;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 40px;
+            display: none;
+        }
+        #sendBtn{
+            cursor: pointer;
+            display: inline-block;
+		    margin-right: 33px;
+		    padding-left: 21px;
+        }
+        #show_chatlan{
+            width: 20px;
+            height: 20px;
+            vertical-align:middle;   /*checkbox与文字对齐*/
+        }
+
+
+/* over */
+
+/* 坐席端样式新增 3.29 */
+#wkstButton{
+	 height: 23px;
+    text-align: right;
+    width: 68px;
+    color: white;
+    top: 2px;
+    position: absolute;
+    right: 10px;
+    background: url(../img/ucagent/gongdan.png) no-repeat;
+    background-size: 28%;
+    background-position: 0 2px;
+}
+.user_nickName{
+	    margin-left: 50%;
+}
+
+.agent_detail{
+   position:absolute;
+   left:55px;
+   font-size:12px;
+   font-family: "宋体";
+}
+.nameAndTime{
+    display: block;
+}
+
+/* 坐席端历史记录查询样式 */
+.middle {
+    text-align: center;
+}
+
+.historyTime{
+	display: inline-block;
+	margin-left: 5px;
+}
+
+
+/* 把ligermenubar的自动生成的属性覆盖 */
+#topmenu{
+	display: inline-block;
+	background:none;
+	border: 0;
+	float: left;
+}
+
+#topmenu > .l-menubar-item{
+	margin:0;
+	background:none;
+}
+
+/* 常用语自动搜索框样式 */
+.gover_search{ 
+	position:absolute;
+    z-index:99; 
+    height:63px; 
+    border-bottom:0; 
+    margin-top: 3px;
+    margin-left: 130px;
+    width: 348px;
+}
+.gover_search_form{
+	height:36px;
+}
+.gover_search .search_t{ 
+	float:left; 
+	width:112px; 
+	line-height:26px; 
+	color:#666666;
+}
+.gover_search .input_search_key{
+	float:left;
+	width:100%;
+	height:18px;
+	margin-right:5px; 
+	border:1px solid #cccccc; 
+	line-height:18px; 
+	background:#FFFFFF;
+}
+.gover_search .search_btn{ 
+	float:left; 
+	width:68px; 
+	height:26px; 
+	overflow:hidden; 
+	border:1px solid #cccccc; 
+	text-align:center; 
+	color:#ff3300; 
+	letter-spacing:5px; 
+	background:url(../images/gover_search_bg.gif) no-repeat 0 -79px; 
+	cursor:pointer; 
+	font-weight:bold;
+}
+.gover_search .search_suggest{ 
+	position:absolute; 
+	z-index:999;  
+	top:18px; 
+	width:100%; 
+	border:1px solid #999999; 
+	display:none; 
+}
+.gover_search .search_suggest li{
+	height:24px; 
+	overflow:hidden; 
+	padding-left:3px; 
+	line-height:24px; 
+	background:#FFFFFF; 
+	cursor:default;
+}
+.gover_search .search_suggest li.hover{
+	background:#DDDDDD;
+}
