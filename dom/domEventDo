@@ -1,0 +1,64 @@
+//跨浏览器的事件处理程序 
+//调用时候直接用domEvent.addEvent( , , );直接调用 
+//使用时候，先用addEvent添加事件，然后在handleFun里面直接写其他函数方法，如getEvent； 
+//addEventListener和attachEvent---都是dom2级事件处理程序 
+var domEvent = { 
+  //element:dom对象，event:待处理的事件，handleFun:处理函数 
+  //事件名称，不含“on”，比如“click”、“mouseover”、“keydown”等 
+  addEvent:function(element,event,handleFun){ 
+    //addEventListener----应用于mozilla 
+    if(element.addEventListener){ 
+      element.addEventListener(event,handleFun,false); 
+    }//attachEvent----应用于IE 
+    else if(element.attachEvent){ 
+      element.attachEvent("on"+event,handleFun); 
+    }//其他的选择dom0级事件处理程序 
+    else{ 
+      //element.onclick===element["on"+event]; 
+      element["on"+event] = handleFun; 
+    } 
+  }, 
+  //事件名称，含“on”，比如“onclick”、“onmouseover”、“onkeydown”等 
+  removeEvent:function(element,event,handleFun){ 
+    //removeEventListener----应用于mozilla 
+    if (element.removeEventListener) { 
+      element.removeEventListener(event,handleFun,false); 
+    }//detachEvent----应用于IE 
+    else if (element.detachEvent) { 
+      element.detachEvent("on"+event,handleFun); 
+    }//其他的选择dom0级事件处理程序 
+    else { 
+      element["on"+event] = null; 
+    } 
+  }, 
+  //阻止事件冒泡 
+  stopPropagation:function(event){ 
+    if(event.stopPropagation){ 
+      event.stopPropagation(); 
+    }else{ 
+      event.cancelBubble = true;//IE阻止事件冒泡，true代表阻止 
+    } 
+  }, 
+  //阻止事件默认行为 
+  preventDefault:function(event){ 
+    if(event.preventDefault){ 
+      event.preventDefault(); 
+    }else{ 
+      event.returnValue = false;//IE阻止事件冒泡，false代表阻止 
+    } 
+  }, 
+  //获得事件元素 
+  //event.target--非IE 
+  //event.srcElement--IE 
+  getElement:function(event){ 
+    return event.target || event.srcElement; 
+  }, 
+  //获得事件 
+  getEvent:function(event){ 
+    return event? event : window.event; 
+  }, 
+  //获得事件类型 
+  getType:function(event){ 
+    return event.type; 
+  } 
+}; 
